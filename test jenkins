@@ -14,8 +14,8 @@ pipeline{
             post{
                 success{
                     }
-                failuer{
-                    
+                failure{
+
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline{
                                 to:'email id'
                             );
                     }
-                    failuer{
+                    failure{
                         echo 'devploy is not perfect'
                          emailext(
                                 subject: 'Deploy Status Fail',
@@ -45,5 +45,3 @@ pipeline{
             }
         }
     }
-
-}
