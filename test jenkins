@@ -1,0 +1,49 @@
+pipeline{
+    agent any
+     stages{
+        stage('backup'){
+            steps{
+                echo "this is the copy file"
+            }
+        }
+        stage('build'){
+            steps{
+                echo "this is Build Stage"
+                
+            }
+            post{
+                success{
+                    }
+                failuer{
+                    
+                }
+            }
+        }
+        stage('deploy'){
+            steps{
+                echo "this is Deploy Stage"
+                }
+                post{
+                    success{
+                            echo 'Deploy is success '
+                            emailext (
+                                subject: 'Deploy Status SUCESSFUL',
+                                body: 'Successfully Deploy',
+                                to:'email id'
+                            );
+                    }
+                    failuer{
+                        echo 'devploy is not perfect'
+                         emailext(
+                                subject: 'Deploy Status Fail',
+                                body: 'fail Deploy',
+                                to: 'email id',
+
+                         );
+                    }
+                }
+            }
+        }
+    }
+
+}
