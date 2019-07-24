@@ -13,9 +13,10 @@ pipeline{
             }
             post{
                 success{
+                    echo 'hello'
                     }
                 failure{
-
+                    echo 'by'
                 }
             }
         }
