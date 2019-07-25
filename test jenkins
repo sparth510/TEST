@@ -3,8 +3,8 @@ pipeline{
      stages{
         stage('backup'){
             steps{
-                echo "this is the copy file"
-            }
+                sh label: '', script: 'sh test-prod.sh
+                }
         }
         stage('build'){
             steps{
